@@ -10,24 +10,12 @@
 	using ObjectEditSessionPtr = mtp::Session::ObjectEditSessionPtr;
 %}
 
-%ignore DECLARE_PTR;
-%define DECLARE_PTR(type)
-%enddef
-
 %include <std_shared_ptr.i>
 %include <stdint.i>
 
-#include "mtp/types.h"
+%include "mtp/types.h"
+%include "mtp/ptp/Device.h"
+%include "mtp/ptp/Session.h"
 
 %ignore mtp::Device::Device;
-
-%shared_ptr(DevicePtr)
-%shared_ptr(mtp::DevicePtr)
-%include "mtp/ptp/Device.h"
-
 %ignore mtp::Session::Session;
-
-%shared_ptr(SessionPtr)
-%shared_ptr(mtp::SessionPtr)
-%shared_ptr(ObjectEditSessionPtr)
-%include "mtp/ptp/Session.h"
