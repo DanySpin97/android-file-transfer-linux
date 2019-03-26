@@ -20,10 +20,10 @@
 #include "mtp/types.h"
 
 %ignore mtp::Device::Device;
-%shared_ptr(DevicePtr)
+%shared_ptr(mtp::DevicePtr)
 %include "mtp/ptp/Device.h"
 
 %ignore mtp::Session::Session;
-%shared_ptr(SessionPtr)
-%include "mtp/ptp/Session.h"
+%shared_ptr(mtp::SessionPtr)
 %shared_ptr(ObjectEditSessionPtr)
+%include "mtp/ptp/Session.h"
