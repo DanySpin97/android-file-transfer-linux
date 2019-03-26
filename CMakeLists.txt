@@ -1,3 +1,4 @@
+cmake_minimum_required(VERSION 3.0)
 project(android-file-transfer)
 
 set (CMAKE_CXX_STANDARD 11)
@@ -14,7 +15,6 @@ if (${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
 	set(USB_BACKEND_DARWIN TRUE)
 endif()
 
-cmake_minimum_required(VERSION 2.8)
 set(CMAKE_USE_RELATIVE_PATHS TRUE)
 set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake ${CMAKE_MODULE_PATH})
 
@@ -47,6 +47,7 @@ endif()
 
 option(BUILD_QT_UI "Build reference Qt application" ON)
 option(BUILD_SHARED_LIB "Build shared library" OFF)
+option(BUILD_PYTHON_MODULE "Build python module" OFF)
 
 option(USB_BACKEND_LIBUSB "Use libusb-1.0" OFF)
 if (USB_BACKEND_LIBUSB)
@@ -162,6 +163,10 @@ endif()
 
 if (BUILD_QT_UI)
 	add_subdirectory(qt)
+endif()
+
+if (BUILD_PYTHON_MODULE)
+	add_subdirectory(python)
 endif()
 
 add_custom_target(uninstall COMMAND xargs rm < install_manifest.txt)
