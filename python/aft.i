@@ -6,6 +6,8 @@
 	#include "mtp/ptp/Device.h"
 
 	using namespace mtp;
+
+	using ObjectEditSessionPtr = mtp::Session::ObjectEditSessionPtr;
 %}
 
 %ignore DECLARE_PTR;
