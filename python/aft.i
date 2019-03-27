@@ -5,9 +5,6 @@
 	#include "mtp/ptp/Session.h"
 	#include "mtp/ptp/Device.h"
 	#include <usb/Context.h>
-
-	using SessionPtr = mtp::SessionPtr;
-	using DevicePtr = mtp::DevicePtr;
 %}
 
 
@@ -38,9 +35,6 @@
 
 %include "mtp/ptp/Messages.h"
 %include "usb/Context.h"
-%include "mtp/ptp/Device.h"
-
-typedef std::shared_ptr<mtp::Device> DevicePtr;
-typedef std::shared_ptr<mtp::Session> SessionPtr;
-
 %include "mtp/ptp/Session.h"
+namespace mtp { class Device; DECLARE_PTR(Device); }
+%include "mtp/ptp/Device.h"
